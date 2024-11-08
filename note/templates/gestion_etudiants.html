@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des étudiants</title>
+</head>
+<body>
+    <h1>Gestion des étudiants</h1>
+
+    <h2>Ajouter un étudiant</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <h2>Liste des étudiants</h2>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Moyenne</th>
+            <th>Photo</th>
+        </tr>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>{{ etudiant.note_moyenne }}</td>
+                <td><img src="{{ etudiant.photo.url }}" alt="photo" width="50" height="50"></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

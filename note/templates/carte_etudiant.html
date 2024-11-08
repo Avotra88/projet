@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Carte Étudiant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            width: 210mm;
+            height: 297mm; /* Format A4 */
+            margin: 0;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .photo {
+            width: 120px;
+            height: 160px;
+            margin-right: 20px;
+            float: left;
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+        .info {
+            float: left;
+            padding-left: 20px;
+        }
+        .clear {
+            clear: both;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Carte Étudiant</h1>
+    </div>
+
+    <div class="content">
+        <img src="{{ photo_url }}" alt="Photo Étudiant" class="photo">
+        <div class="info">
+            <p><strong>Nom :</strong> {{ etudiant.nom }}</p>
+            <p><strong>Prénom :</strong> {{ etudiant.prenom }}</p>
+            <p><strong>Matricule :</strong> {{ etudiant.matricule }}</p>
+            <p><strong>Programme :</strong> {{ etudiant.programme }}</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="footer">
+        <p>Université XYZ - 2024</p>
+    </div>
+</body>
+</html>
